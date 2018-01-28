@@ -47,7 +47,7 @@
 										@if(!empty($comment->user->user_photo) && Storage::exists('public'.$comment->user->user_photo))
 											<a href="{{ route('view', ['user' => $comment->user]) }}"><img src="{{ asset('storage'.$comment->user->user_photo) }}" alt=" " class="img-responsive" style="max-height: 100px; max-width: 80px;" /></a>
 										@else
-											<a href=""><img src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" alt=" " class="img-responsive"></a>
+											<a href="{{ route('view', ['user' => $comment->user]) }}"><img src="https://www.shareicon.net/data/128x128/2016/06/25/786529_people_512x512.png" alt=" " class="img-responsive"></a>
 										@endif
 									</div>
 									<div class="comments-grid-right">
