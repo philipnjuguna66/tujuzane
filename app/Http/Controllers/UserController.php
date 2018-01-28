@@ -139,6 +139,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        //this method would normally be called when a user is 
+        //deleting their account
     }
 }
