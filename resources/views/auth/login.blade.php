@@ -15,7 +15,7 @@
 		<div class="form-date-w3-agileits">
 			<label> Email </label>
 			{{-- <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required> --}}
-			<input type="email" name="email" placeholder="Your Email" required value="{{ old('email') }}" autofocus>
+			<input type="email" name="email" placeholder="Your Email" required value="{{ old('email') }}" autofocus id="emailfield">
 			<label> Password </label>
 			<input type="password" name="password" placeholder="Your Password" required>
 			<br><input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> <span style="color: white;">Remember me</span>
@@ -29,6 +29,18 @@
 </div>
 <!-- //Main -->
 </div>
+
+<script src="{{ asset('js/myjs.js') }}"></script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  
+<script type="text/javascript">
+  $(document).ready(function(){
+  	$("#emailfield").focus();
+  });
+</script>
 <!-- footer -->
 {{-- <div class="footer-w3l">
 	<p>&copy; 2017 Classy Register Form. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
