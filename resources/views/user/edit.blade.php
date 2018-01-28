@@ -39,7 +39,8 @@
           Your current name and email are shown in the boxes. If you don't intend to change them, leave the boxes blank.
         </div>
         
-        <div class="col-lg-7">
+        <div class="col-lg-9">
+
           <div class="form-group">
             <label class="col-lg-3 control-label">Name:</label>
             <div class="col-lg-8">
@@ -53,20 +54,20 @@
             </div>
           </div>
 
-        <div class="col-md-5">
           <div class="form-group">
-            <label for="bio">About me</label>
-            <textarea name="bio" class="form-control" id="bio" rows="3" placeholder="About me. E.g 'Passionate real estate manager'">
+            <label class="col-lg-3 control-label">About me:</label>
+            <div class="col-lg-8">
+              <textarea name="bio" class="form-control" id="bio" rows="3" placeholder="About me. E.g 'Passionate real estate manager'">
               @if(old('bio') != null)
                 {{ old('bio') }}
               @elseif(isset($user->bio))
                 {{ $user->bio }}
               @endif
             </textarea>
+            </div>
           </div>
-        </div>
 
-          <div class="col-md-5">
+          <div class="col-md-8">
             <div class="form-group">
                 <div class="col-md-3"></div>
                 <div class="col-md-8">
@@ -92,7 +93,7 @@
 
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
-            <div class="col-md-8">
+            <div class="col-md-8 col-md-offset-4">
               <input type="submit" class="btn btn-primary" value="Save Changes">
               <span></span>
               <input type="reset" class="btn btn-default" onclick="" value="Cancel">
