@@ -64,7 +64,11 @@
                       <h3 class="panel-title">About me</h3>
                     </div>
                     <div class="panel-body">
-                      {{ $user->bio }}
+                      @if($user->bio != "")
+                        {{ $user->bio }}
+                      @else
+                        <em>I have no bio for now :-)</em>
+                      @endif
                     </div>
                   </div>
                   <small class="text-muted">Joined&nbsp; {{ $user->created_at->toDayDateTimeString() }}</small>
