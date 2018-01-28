@@ -67,7 +67,7 @@
                       @if($user->bio != "")
                         {{ $user->bio }}
                       @else
-                        <em>I have no bio for now :-)</em>
+                        <em>nothing for now :-)</em>
                       @endif
                     </div>
                   </div>
