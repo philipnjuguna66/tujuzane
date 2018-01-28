@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('post_title');
             $table->text('post_body');
             $table->unsignedInteger('user_id');
+            $table->text('post_photo');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
 
