@@ -48,7 +48,7 @@
                 
                 @else
                   <img class="img-circle img-responsive avatar" style="-webkit-user-select:none; 
-                  display:block; margin:auto;" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg">
+                  display:block; margin:auto;" src="https://www.shareicon.net/data/128x128/2016/06/25/786529_people_512x512.png">
                 @endif
             </div>
             <div class="col-md-8">
