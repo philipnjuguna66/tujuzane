@@ -54,7 +54,5 @@
         "sort-packages": true,
         "optimize-autoloader": true
     },
-    "post-install-cmd": { 
-        "ln -sr storage/app/public public/storage" 
-    }
+    "post-install-cmd": [ "ln -sr storage/app/public public/storage" ]
 }
