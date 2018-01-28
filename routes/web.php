@@ -103,7 +103,7 @@ Route::post('/password/confirm', [
 // Route::post('/confirmpassfirst', 'UserController@confirmPassFirst');
 
 Route::post('user/update', [
-	'uses' => 'Usercontroller@update',
+	'uses' => 'UserController@update',
 	'as' => 'update.me',
 	'middleware' => 'auth'
 ]);
