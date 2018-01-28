@@ -19,7 +19,7 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			
-			@if(count($posts) > 1)
+			@if(count($posts) > 0)
 				@foreach($posts as $post)
 
 					<div class="tc-ch">
