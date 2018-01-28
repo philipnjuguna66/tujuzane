@@ -51,6 +51,11 @@
 					<div class="clearfix"></div>
 
 				@endforeach
+			@else
+				<div class="tc-ch">
+					There are no posts yet.<br>
+					Be the first to <a href="{{ route('newpost') }}" title="Make a post">Post</a> on 2juzane Blog!
+				</div>
 			@endif
 
 		</div>
