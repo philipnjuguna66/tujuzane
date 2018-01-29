@@ -69,6 +69,12 @@ Route::post('posts/{post}/comment', [
 	'middleware' => 'auth'
 ]);
 
+Route::post('posts/comment', [
+	'uses' => 'PostController@postAddComment',
+	'as' => 'add.comment',
+	'middleware' => 'auth'
+]);
+
 Route::post('/comment/edit', [
 	'uses' => 'PostController@commentEdit',
 	'as' => 'edit.comment',

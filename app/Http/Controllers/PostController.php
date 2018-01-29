@@ -99,6 +99,15 @@ class PostController extends Controller
         return redirect()->back()->with(['message' => $message]);
     }
 
+    public function postAddComment(Request $request){
+        $post = Post::find($request->postid);
+        if($post->addComment($request->comment_body)){
+            return "Added";
+        }else{
+            return "Failed";
+        }
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

@@ -104,12 +104,28 @@
 	/*  some globals   */
 	var deleteRoute = "{{ route('delete.comment') }}";
 	var editRoute = "{{ route('edit.comment') }}";
+
+	var addCommentRoute = "{{ route('add.comment') }}";
+	var postid = "{{ $post->id }}";
 	var token = "{{Session::token()}}";
 
 	function confirmDelete(element){
-		if(confirm('Are you sure you want to delete this post?') == true){
+		if(confirm('Are you sure you want to delete this post? You CANNOT UNDO this') == true){
 			var link = element.parentNode.lastChild;
 			$(link)[0].click();
+		}
+	}
+
+	function addComment(element){
+		var textarea = element.parentNode.parentNode.querySelector("textarea");
+		var comment_body = textarea.value;
+
+		if(comment_body != ""){
+			$.post(addCommentRoute, {'postid': postid, 'comment_body': comment_body, '_token': token}, function(data) {
+				console.log(data);
+			});
+		}else{
+			$(textarea).focus();
 		}
 	}
 </script>
