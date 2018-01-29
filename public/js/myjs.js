@@ -7,7 +7,7 @@ function showToast(text, color = '#009936'){
 }
 
 function deleteComment(element){
-	if(confirm('Delete this comment?') == true){
+	if(confirm('Delete this comment? You CANNOT UNDO this.') == true){
 		// var link = element.parentNode.lastChild;
 		// $(link)[0].click();
 		var commentId = element.parentNode.lastChild.innerHTML;
