@@ -83,7 +83,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/posts') }}">
+                    <a class="navbar-brand" href="{{ url('/') }}">
                         <img class="img-responsive" style="max-width: 70px; max-height: 70px;" src="{{ asset('images/logo.png') }}">
                     </a>
                 </div>
