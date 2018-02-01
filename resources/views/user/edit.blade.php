@@ -5,29 +5,45 @@
 @section('content')
 
 <link rel="stylesheet" type="text/css" href="{{ asset('css/user.css') }}">
+<style type="text/css">
+  h6:hover{
+    color:green;
+  }
+  @media only screen and (max-width: 600px) {
+    #profileImage{
+      width: 200px;
+      height:200px;
+    }
+  }
+</style>
 
 <div class="container" style="background: white">
     <h1>Edit Profile</h1>
   	<hr>
 	<div class="row">
-		<form class="form-horizontal" role="form" method="POST" action="{{ route('update.me') }}" enctype="multipart/form-data">
+		<form id="userEditForm" class="form-horizontal" role="form" method="POST" action="{{ route('update.me') }}" enctype="multipart/form-data">
         	{{ csrf_field() }}
       <!-- left column -->
       <div class="col-md-3">
         <div class="text-center">
           
-        	@if(!empty($user->user_photo) && Storage::exists('public'.$user->user_photo))
+        	@if(!empty($user->user_photo))
           
-            <img class="img-circle img-responsive avatar" style="-webkit-user-select:none;display:block; margin:auto;" src="{{ asset('storage'.$user->user_photo) }}">
+            <img id="profileImage" class="img-circle img-responsive avatar" style="-webkit-user-select:none;display:block; margin:auto;" src="{{ $user->user_photo }}">
           
           @else
-            <img class="img-circle img-responsive avatar" style="-webkit-user-select:none; 
+            <img id="profileImage" class="img-circle img-responsive avatar" style="-webkit-user-select:none; 
             display:block; margin:auto;" src="https://www.shareicon.net/data/128x128/2016/06/25/786529_people_512x512.png">
           @endif
 
-          <h6>Upload a different photo...</h6>
+          <h6 onclick="doTheFollowing(this)" style="cursor:pointer;">Upload a different photo?</h6>
           
-          <input type="file" class="form-control" name="image">
+          <input type="hidden" name="UPLOADCARE_PUB_KEY" value="3f7f757fee6f8c69eb27">
+          <input type="hidden" name="UPLOADCARE_ACTION" value="{{ route('update.me') }}">
+          @if($errors->any())
+          @else
+            <input id="fileButton" type="file" name="image" onchange="readURL(this)" class="form-control">
+          @endif
         </div>
       </div>
       
@@ -39,7 +55,7 @@
           Your current name and email are shown in the boxes. If you don't intend to change them, leave the boxes blank.
         </div>
         
-        <div class="col-lg-9">
+        <div class="">
 
           <div class="form-group">
             <label class="col-lg-3 control-label">Name:</label>
@@ -58,20 +74,19 @@
             <label class="col-lg-3 control-label">About me:</label>
             <div class="col-lg-8">
               <textarea name="bio" class="form-control" id="bio" rows="3" placeholder="About me. E.g 'Passionate real estate manager'">
-              @if(old('bio') != null)
-                {{ old('bio') }}
-              @elseif(isset($user->bio))
+              @if(isset($user->bio))
                 {{ $user->bio }}
               @endif
             </textarea>
             </div>
           </div>
 
-          <div class="col-md-8">
+          <div class="">
             <div class="form-group">
                 <div class="col-md-3"></div>
                 <div class="col-md-8">
                  <a href="#" data-toggle="modal" data-target="#pwdModal" id="changepasstext" onclick="dothis();">Change your password</a>
+                 <p id="passChanged" style="display:none">Password changed</p> 
                 </div>
              </div>
           <div id="passEditing" style="display: none;"> 
@@ -108,27 +123,24 @@
 		  <div class="modal-content">
 		      <div class="modal-header">
 		          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		          <h5 class="text-center">Please enter your current password to confirm this is you.</h5>
+		          <h5 class="text-center" id="modalHeader">Please enter your current password to confirm this is you.</h5>
 		      </div>
 		      <div class="modal-body">
-		      	{{-- <form method="POST" action="{{ url('/confirmpassfirst') }}">
-		      		{{  csrf_field() }}
-		          </form> --}}
-              <div class="col-md-12">
-                  <div class="panel panel-default">
-                      <div class="panel-body">
-                          <div class="text-center">
-                              <div class="panel-body">
-                                  <div class="form-group">
-                                    <input type="hidden" value="{{ $user->email }}">
-                                    <input class="form-control" placeholder="Password" type="password" id="passwordFirst">
-                                  </div>
-                                  <input class="btn btn-primary btn-block" onclick="confirmPassword(this)" value="Confirm" data-dismiss="modal">
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <div class="panel-body">
+                                <div class="form-group">
+                                  <input type="hidden" value="{{ $user->email }}">
+                                  <input class="form-control" placeholder="Password" type="password" id="passwordFirst">
+                                </div>
+                                <input class="btn btn-primary btn-block" onclick="confirmPassword(this)" value="Confirm" data-dismiss="modal">
+                            </div>
+                        </div>
+                    </div>
                 </div>
+              </div>
 		      </div>
 		      <div class="modal-footer">
 		          <div class="col-md-12">
@@ -142,16 +154,38 @@
 </div>
 <hr>
 
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
 <script type="text/javascript">
+  $(document).ready(function(){
+    console.clear();
+    
+    $( "#userEditForm" ).submit(function( event ) {
+      if($("#fileButton").val()){
+        $("#userEditForm").attr('action', 'https://upload.uploadcare.com/submit/');
+      }
+      
+      //event.preventDefault();
+    });
+  });
+
   /* variables  */
   var confirmPassRoute = "{{ route('confirm.pass') }}";
   var token = "{{ Session::token() }}";
+
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+          $('#profileImage').attr('src', e.target.result);
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
 </script>
 <script type="text/javascript" src="{{ asset('js/myjs.js') }}">
 </script>
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
 
 @endsection('content')

@@ -23,11 +23,15 @@
 				@foreach($posts as $post)
 
 					<div class="tc-ch">
-						@if(!empty($post->post_photo) && Storage::exists('public'.$post->post_photo))
+						<!-- @if(!empty($post->post_photo) && Storage::exists('public'.$post->post_photo))
 							<div class="tch-img">
 								<a href="{{ route('post', ['post' => $post]) }}"><img src="{{ asset('storage'.$post->post_photo) }}" style="border-radius:5px; max-height: 250px; width: 100%; border-radius: 5px;" class="img-responsive" alt=""/></a>
 							</div>
-						@endif	
+						@endif	 -->
+						<div class="tch-img">
+							<a href="{{ route('post', ['post' => $post]) }}"><img src="{{ $post->post_photo }}" style="border-radius:5px; max-height: 250px; width: 100%; border-radius: 5px;" class="img-responsive" alt=""/></a>
+						</div>
+
 						{{-- <a class="blog blue" href="singlepage.html">Technology</a> --}}
 						<h3><a href="{{ route('post', ['post' => $post]) }}">{{  $post->post_title }}</a></h3>
 							<p>{{ substr($post->post_body, 0, (0.5*(strlen($post->post_body)))) }}.. <a href="{{ route('post', ['post' => $post]) }}">more</a></p>

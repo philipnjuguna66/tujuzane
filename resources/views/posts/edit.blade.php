@@ -62,21 +62,21 @@
       <p style="margin: 10px;">Editing your post</p>
 
       <div class="panel-footer">
-        <input type="text" name="post_title" style="width:100%;font-size: 20px; padding: 10px;border:none;" placeholder="Heading" value="{{ $post->post_title }}" autofocus>
+        <input type="text" name="post_title" style="width:100%;font-size: 20px; padding: 10px;border:none;" placeholder="Heading" value="{{ $post->post_title }}" autofocus required>
       </div>
 
       <div class="panel-body">
-        <textarea name='post_body' cols="80" rows="5" style="width:100%;border:solid 1px lightgray; border-radius: 10px; margin:0; font-size: 16px; padding: 5px;" placeholder="Tell your story here...">{{ $post->post_body }}</textarea>
+        <textarea name='post_body' cols="80" rows="5" style="width:100%;border:solid 1px lightgray; border-radius: 10px; margin:0; font-size: 16px; padding: 5px;" placeholder="Tell your story here..." required>{{ $post->post_body }}</textarea>
       </div>
 
       <div class="panel-footer" style="padding: 10px;">
 
-        <div class="alert alert-info" style=""> 
+        <div class="alert alert-info" style="display:none;"> 
           You can change the image associated with your story. Click on the browse button below. (JPEG or PNG only)
+          <input type="file" name="image" onchange="readURL(this)"  style="margin-bottom: 10px;" />
+          <img id="blah" style="display: none;" src="{{ $post->post_photo }}" class="img-responsive" height="100" width="200" alt="story image" />
         </div>
 
-        <input type="file" name="image" onchange="readURL(this)"  style="margin-bottom: 10px;" />
-        <img id="blah" style="display: none;" src="{{ asset('storage'.$post->post_photo) }}" class="img-responsive" height="100" width="200" alt="story image" />
       </div>
 
     </div>

@@ -17,9 +17,10 @@
 			<div class="single-left">
 				<div class="single-left1">
 					<br>
-					@if(!empty($post->post_photo) && Storage::exists('public'.$post->post_photo))
+					{{--  @if(!empty($post->post_photo) && Storage::exists('public'.$post->post_photo))
 						<img src="{{ asset('storage'.$post->post_photo) }}" style="max-height: 300px; width: 100%; border-radius: 5px;" class="img-responsive" />
-					@endif
+					@endif  --}}
+					<img src="{{ $post->post_photo }}" style="max-height: 300px; width: 100%; border-radius: 5px;" class="img-responsive" />
 					<h3>{{ $post->post_title }}</h3>
 					<ul>  
 						@if(Auth::user() != $post->user)

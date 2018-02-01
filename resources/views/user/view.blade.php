@@ -42,9 +42,9 @@
           <div class="row">
             <div class="col-md-4 text-center">
                 
-                @if(!empty($user->user_photo) && Storage::exists('public'.$user->user_photo))
+                @if(!empty($user->user_photo))
                 
-                  <img class="img-circle img-responsive avatar" style="-webkit-user-select:none;display:block; margin:auto;" src="{{ asset('storage'.$user->user_photo) }}">
+                  <img class="img-circle img-responsive avatar" style="-webkit-user-select:none;display:block; margin:auto;" src="{{ $user->user_photo }}">
                 
                 @else
                   <img class="img-circle img-responsive avatar" style="-webkit-user-select:none; 

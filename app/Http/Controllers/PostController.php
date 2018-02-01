@@ -41,32 +41,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //validate request data
-        $this->validate($request, [
-            'post_title' => "required",
-            'post_body' => 'required',
-            'image' => 'mimes:jpeg,png,bmp,tiff |max:4096'
-        ],
-            $messages = [
-                'required' => 'The :attribute field is required.',
-                'mimes' => 'Only JPEG or PNG images are allowed.'
-            ]
-        );
-
-        //if image is given, upload
-        $file = $request->file('image');
-        $filename = '';
-        if($file){
-            $filename = '/postsimages/'.rand(100000, 999999).'.'.$file->extension();
-            Storage::put('public'.$filename, File::get($file));
-        }
-
         //save post
         $user = Auth::user();
         if($user->posts()->create([
             'post_title' => $request->post_title,
             'post_body' => $request->post_body,
-            'post_photo' => $filename
+            'post_photo' => "https://ucarecdn.com/".$request->image."/"
         ])){
             session()->flash('message', "Your post has been published");
         }
@@ -131,20 +111,11 @@ class PostController extends Controller
         $this->validate($request, [
             'post_title' => "required",
             'post_body' => 'required',
-            'image' => 'mimes:jpeg,png,bmp,tiff |max:4096'
         ],
             $messages = [
                 'required' => 'The :attribute field is required.',
-                'mimes' => 'Only JPEG or PNG images are allowed.'
             ]
         );
-
-        //process image, if given
-        $file = $request->file('image');
-        if($file){
-            $filename = '/postsimages/'.rand(100000, 999999).'.'.$file->extension();
-            Storage::put('public'.$filename, File::get($file));
-        }
 
         //save the post
         $post = Post::find($post->id);
