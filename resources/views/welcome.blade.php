@@ -20,6 +20,29 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="welcome/css/style.css" />
 
+    <style type="text/css" media="screen">
+        .btn-getstarted {
+          font-family: Arial;
+          padding: 30px;
+          font-size: 30px;
+          font-weight: bold;
+          margin: 20px;
+          color: rgba(91, 192, 222, 0.75);
+          letter-spacing: 1px;
+          line-height: 15px;
+          border: 2px solid rgba(91, 192, 222, 0.75);
+          border-radius: 40px;
+          background: transparent;
+          transition: all 0.3s ease 0s;
+        }
+
+        .btn-getstarted:hover {
+          color: #FFF;
+          background: rgba(91, 192, 222, 0.75);
+          border: 2px solid rgba(91, 192, 222, 0.75);
+        }
+    </style>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -46,12 +69,13 @@
                     <div class="col-md-10 col-md-offset-1">
                         <div class="home-content">
                             {{-- <h1 class="white-text">2juzane Blog</h1> --}}
-                            <img class="img-responsive" src="images/logo.png" width="400" height="400" style="margin: 0 auto;">
+                            <img class="img-responsive" src="images/logo.png" width="500" height="500" style="margin: 0 auto;">
                             <p class="white-text">
                             Meet, interract and go blast with other bloggers!
                             </p>
-                            <a href="{{url('/login')}}"><button class="btn btn-lg btn-primary">Login</button></a>
-                            <a href="{{url('/register')}}"><button class="btn btn-lg btn-success">Register</button></a>
+                            <a href="{{url('/posts')}}"><button class="btn-getstarted">Let's go</button></a>
+                            {{-- <a href="{{url('/login')}}"><button class="btn btn-lg btn-primary">Login</button></a>
+                            <a href="{{url('/register')}}"><button class="btn btn-lg btn-success">Register</button></a> --}}
                         </div>
                     </div>
                     <!-- /home content -->

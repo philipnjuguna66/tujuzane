@@ -68,6 +68,11 @@ class PostController extends Controller
         return view('posts.show', ['post' => $post]);
     }
 
+    public function loginToComment(Post $post)
+    {
+        return view('posts.show', ['post' => $post]);
+    }
+
     public function commentOnPost(Post $post, Request $request){
         //validate comment data
         $this->validate($request, [

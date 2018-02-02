@@ -8,7 +8,14 @@
 <link href="{{ secure_asset('css/user.css') }}" rel="stylesheet">
 
 <style type="text/css" media="screen">
-	
+	#logintocomment{
+		margin: 10px;
+		color: #9E510C;
+		text-decoration:none;
+	}
+	#logintocomment:hover{
+		color:#F99C09;
+	}
 </style>
 
 <div class="container">
@@ -97,6 +104,8 @@
 						</div>
 					</form>
 				</div>
+				@else
+				<a id="logintocomment" href="{{ route('login.to.comment', ['post'=>$post]) }}">Login to comment</a>
 				@endif
 			</div>
 		</div>
