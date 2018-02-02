@@ -17,8 +17,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 
     <!-- Custom stlylesheet -->
-    <link rel="stylesheet" type="text/css" href="//css/bootstrap/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="//welcome/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="welcome/css/style.css" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -80,11 +80,11 @@
     <!-- /Preloader -->
 
     <!-- jQuery Plugins -->
-    <script type="text/javascript" src="//welcome/js/jquery.min.js"></script>
-    <script type="text/javascript" src="//welcome/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="//welcome/js/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="//welcome/js/jquery.magnific-popup.js"></script>
-    <script type="text/javascript" src="//welcome/js/main.js"></script>
+    <script type="text/javascript" src="welcome/js/jquery.min.js"></script>
+    <script type="text/javascript" src="welcome/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="welcome/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="welcome/js/jquery.magnific-popup.js"></script>
+    <script type="text/javascript" src="welcome/js/main.js"></script>
 
 </body>
 
