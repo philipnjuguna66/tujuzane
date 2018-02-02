@@ -31,7 +31,7 @@ Route::get('posts/{post}', [
 	'as' => 'post'
 ]);
 
-Route::get("/posts/{post}/logintocomment", [
+Route::get("/posts/{post}/comment", [
 	'uses' => 'PostController@loginToComment',
 	'as' => 'login.to.comment',
 	'middleware' => 'auth'
