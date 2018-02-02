@@ -94,7 +94,7 @@
 					</div>
 				</div>
 				@if(auth()->check())
-				<div class="leave-coment-form" style="background: white; padding: 10px;">
+				<div id="comment" class="leave-coment-form" style="background: white; padding: 10px;">
 					<h3>Leave Your Comment</h3>
 					<form action="{{ route('comment', ['post' => $post]) }}" method="post">
 						{{ csrf_field() }}
@@ -114,7 +114,12 @@
 <script src="{{ secure_asset('js/bootstrap.js') }}"></script>
 <script type="text/javascript" src="{{ secure_asset('js/myjs.js') }}"></script>
 <script type="text/javascript">
-
+	$(document).ready(function(){
+		var curAddress = window.location.href;
+		if(curAddress.includes('comment')){
+			window.location.assign(curAddress + '#comment');
+		}
+	});
 	/*  some globals   */
 	var deleteRoute = "{{ route('delete.comment') }}";
 	var editRoute = "{{ route('edit.comment') }}";
