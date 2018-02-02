@@ -3,9 +3,9 @@
 @section('title', 'View Post')
 @section('content')
 
-<link href="post/css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link rel="stylesheet" type="text/css" href="css/app.css">
-<link href="css/user.css" rel="stylesheet">
+<link href="{{ public_path('post/css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="{{ public_path('css/app.css') }}">
+<link href="{{ public_path('css/user.css') }}" rel="stylesheet">
 
 <style type="text/css" media="screen">
 	
