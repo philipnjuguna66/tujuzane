@@ -12,6 +12,9 @@ use \File;
 
 class PostController extends Controller
 {
+    public function __constructor(){
+        $this->middleware()->except(['index', 'show']);
+    }
     /**
      * Display a listing of the resource.
      *

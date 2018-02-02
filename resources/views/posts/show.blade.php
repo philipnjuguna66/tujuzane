@@ -86,6 +86,7 @@
 						<div id="snackbar"></div>
 					</div>
 				</div>
+				@if(auth()->check())
 				<div class="leave-coment-form" style="background: white; padding: 10px;">
 					<h3>Leave Your Comment</h3>
 					<form action="{{ route('comment', ['post' => $post]) }}" method="post">
@@ -96,6 +97,7 @@
 						</div>
 					</form>
 				</div>
+				@endif
 			</div>
 		</div>
 

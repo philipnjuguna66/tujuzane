@@ -23,14 +23,12 @@ Auth::routes();
 Route::get('/home', 'PostController@index')->name('home');
 Route::get('/posts', [
 	'uses' => 'PostController@index',
-	'as' => 'posts',
-	'middleware' => 'auth'
+	'as' => 'posts'
 ]);
 
 Route::get('posts/{post}', [
 	'uses' => 'PostController@show',
-	'as' => 'post',
-	'middleware' => 'auth'
+	'as' => 'post'
 ]);
 
 Route::get('/post/create', [
