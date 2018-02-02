@@ -4,7 +4,7 @@
 
 @section('content')
 
-<link rel="stylesheet" type="text/css" href="css/user.css">
+<link rel="stylesheet" type="text/css" href="{{ secure_asset('css/user.css') }}">
 <style type="text/css">
   h6:hover{
     color:green;

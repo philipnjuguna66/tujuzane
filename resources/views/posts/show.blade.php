@@ -48,7 +48,7 @@
 								<div class="comments-grid">
 									<div class="comments-grid-left">
 										@if(!empty($comment->user->user_photo))
-											<a href="{{ route('view', ['user' => $comment->user]) }}"><img src="$comment->user->user_photo" alt=" " class="img-responsive" style="max-height: 100px; max-width: 80px;" /></a>
+											<a href="{{ route('view', ['user' => $comment->user]) }}"><img src="{{ $comment->user->user_photo }}" alt=" " class="img-responsive" style="max-height: 100px; max-width: 80px;" /></a>
 										@else
 											<a href="{{ route('view', ['user' => $comment->user]) }}"><img src="https://www.shareicon.net/data/128x128/2016/06/25/786529_people_512x512.png" alt=" " class="img-responsive"></a>
 										@endif
