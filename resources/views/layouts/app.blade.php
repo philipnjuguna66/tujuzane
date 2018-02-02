@@ -13,7 +13,7 @@
     <!-- Styles -->
     {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap/css/bootstrap.min.css') }}"> --}}
     
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
@@ -85,7 +85,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img class="img-responsive" style="max-width: 70px; max-height: 70px;" src="{{ asset('images/logo.png') }}">
+                        <img class="img-responsive" style="max-width: 70px; max-height: 70px;" src="images/logo.png">
                     </a>
                 </div>
 
@@ -134,6 +134,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

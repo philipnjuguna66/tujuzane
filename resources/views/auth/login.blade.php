@@ -3,8 +3,8 @@
 
 @section('content')
 
-<link href="{{ asset('css/register.css') }}" rel="stylesheet" type="text/css" media="all">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/user.css') }}">
+<link href="css/register.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="css/user.css">
 
 <!-- Main -->
 <div class="about-bottom main-agile book-form">
@@ -30,7 +30,7 @@
 <!-- //Main -->
 </div>
 
-<script src="{{ asset('js/myjs.js') }}"></script>
+<script src="js/myjs.js"></script>
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
