@@ -46,12 +46,29 @@ class PostController extends Controller
     {
         //save post
         $user = Auth::user();
-        if($user->posts()->create([
-            'post_title' => $request->post_title,
-            'post_body' => $request->post_body,
-            'post_photo' => "https://ucarecdn.com/".$request->image."/"
-        ])){
-            session()->flash('message', "Your post has been published");
+
+        if(isset($request->image))
+        {
+            //create post with image
+            if($user->posts()->create([
+                'post_title' => $request->post_title,
+                'post_body' => $request->post_body,
+                'post_photo' => "https://ucarecdn.com/".$request->image."/"
+            ])){
+                session()->flash('message', "Your post has been published");
+            }else{
+                session()->flash('message', "We couln't publish your post at this time. Please try later.");
+            }
+        }else{
+            //create a post without image
+            if($user->posts()->create([
+                'post_title' => $request->post_title,
+                'post_body' => $request->post_body
+            ])){
+                session()->flash('message', 'Your post has been published');
+            }else{
+                session()->flash('message', "We could'nt publish your post at this time. Please try later");
+            }
         }
 
         return redirect()->route('posts');
@@ -114,24 +131,15 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request)
     {
-        $this->validate($request, [
-            'post_title' => "required",
-            'post_body' => 'required',
-        ],
-            $messages = [
-                'required' => 'The :attribute field is required.',
-            ]
-        );
-
-        //save the post
-        $post = Post::find($post->id);
+        // //save the post
+        $post = Post::find($request->id);
         $post->post_title = $request->post_title;
         $post->post_body = $request->post_body;
-        if(isset($filename))
+        if(isset($request->image))
         {
-            $post->post_photo = $filename;
+            $post->post_photo = "https://ucarecdn.com/".$request->image."/";
         }
 
         $post->update();
@@ -139,7 +147,6 @@ class PostController extends Controller
         session()->flash('message', 'Changes have been saved.');
 
         return redirect()->route('post', ['post' => $post]);
-        
     }
 
     /**

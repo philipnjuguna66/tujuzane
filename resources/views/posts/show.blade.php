@@ -98,7 +98,7 @@
 					<h3>Leave Your Comment</h3>
 					<form action="{{ route('comment', ['post' => $post]) }}" method="post">
 						{{ csrf_field() }}
-						<textarea name="comment_body" placeholder="Your comment here..." required autofocus></textarea>
+						<textarea name="comment_body" placeholder="Your comment here..." required></textarea>
 						<div class="w3_single_submit">
 							<input type="submit" value="Comment" >
 						</div>

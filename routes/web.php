@@ -55,7 +55,7 @@ Route::get('posts/{post}/edit', [
 	'middleware' => 'auth'
 ]);
 
-Route::post('posts/{post}/edit', [
+Route::post('post/edit', [
 	'uses' => 'PostController@update',
 	'as' => 'post.edit.save',
 	'middleware' => 'auth'
