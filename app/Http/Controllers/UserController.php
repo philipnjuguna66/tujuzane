@@ -41,14 +41,13 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user, $pass_confirmed = "false")
+    public function edit(User $user)
     {
         if($user != Auth::user())
         {
-            return $this->show($user);
+            return redirect()->route('view', ['user' => $user]);
         }
 
-        $user->pass_confirmed = $pass_confirmed;
         return view('user.edit', ['user' => $user]);
     }
 
