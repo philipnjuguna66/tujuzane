@@ -38,6 +38,8 @@
   
 <script type="text/javascript">
   $(document).ready(function(){
+  	console.clear();
+  	console.log('All set :-)');
   	$("#emailfield").focus();
   });
 </script>
