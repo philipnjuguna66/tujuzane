@@ -85,21 +85,21 @@
             <div class="form-group">
                 <div class="col-md-3"></div>
                 <div class="col-md-8">
-                 <a href="#" data-toggle="modal" data-target="#pwdModal" id="changepasstext" onclick="dothis();">Change your password</a>
-                 <p id="passChanged" style="display:none">Password changed</p> 
+                 <a href="#" data-toggle="modal" data-target="#pwdModal" id="changepasstext">Change your password</a>
+                 <a href="#" style="display: none;" id="cancelPassChanging" onclick="cancelPassChanging(this);">Cancel Changing password</a> 
                 </div>
              </div>
           <div id="passEditing" style="display: none;"> 
             <div class="form-group">
               <label class="col-md-3 control-label">New Password:</label>
               <div class="col-md-8">
-                <input class="form-control" type="password" name="password" value="">
+                <input class="form-control" type="password" name="password" placeholder="Password">
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-3 control-label">Confirm password:</label>
               <div class="col-md-8">
-                <input class="form-control" type="password" name="password_confirmation" value="">
+                <input class="form-control" type="password" name="password_confirmation" placeholder="confirm password">
               </div>
             </div>
           </div>
@@ -182,6 +182,12 @@
 
       reader.readAsDataURL(input.files[0]);
     }
+  }
+
+  function cancelPassChanging(element){
+    $("#passEditing").css('display', 'none');
+    $("#changepasstext").css('display', 'block');
+    $(element).css('display', 'none');
   }
 
 </script>

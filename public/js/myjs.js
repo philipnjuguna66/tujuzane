@@ -75,12 +75,14 @@ function confirmPassword(element){
 	var email = element.parentNode.firstChild.firstChild.value;
 	var password = element.parentNode.firstChild.lastChild.value;
 	var divtodisplay = document.getElementById("passEditing");
+	var cancelPassChanging = document.getElementById("cancelPassChanging");
 	// $("#changepasstext").css('display', 'none');
 	// divtodisplay.style.display = "block";
 
 	$.post(confirmPassRoute, {'email': email, 'password': password, '_token':token}, function(data) {
 		if(data == 'true'){
 			$("#changepasstext").css('display', 'none');
+			cancelPassChanging.style.display = "block";
 			divtodisplay.style.display = "block";
 		}else{
 			showToast('Wrong password', 'red');
