@@ -3,9 +3,9 @@
 @section('title', 'View Post')
 @section('content')
 
-<link href="../../post/css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link rel="stylesheet" type="text/css" href="css/app.css">
-<link href="../../css/user.css" rel="stylesheet">
+<link href="{{ secure_asset('post/css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
+{{-- <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/app.css') }}"> --}}
+<link href="{{ secure_asset('css/user.css') }}" rel="stylesheet">
 
 <style type="text/css" media="screen">
 	
@@ -100,8 +100,8 @@
 		</div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="../../js/bootstrap.js"></script>
-<script type="text/javascript" src="../../js/myjs.js"></script>
+<script src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/myjs.js"></script>
 <script type="text/javascript">
 
 	/*  some globals   */
