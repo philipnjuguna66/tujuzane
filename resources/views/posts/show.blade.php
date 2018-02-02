@@ -3,9 +3,9 @@
 @section('title', 'View Post')
 @section('content')
 
-<link href="{{ asset('post/css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
-<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-<link href="{{ asset('css/user.css') }}" rel="stylesheet">
+<link href="post/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="css/app.css">
+<link href="css/user.css" rel="stylesheet">
 
 <style type="text/css" media="screen">
 	
@@ -20,7 +20,9 @@
 					{{--  @if(!empty($post->post_photo) && Storage::exists('public'.$post->post_photo))
 						<img src="{{ asset('storage'.$post->post_photo) }}" style="max-height: 300px; width: 100%; border-radius: 5px;" class="img-responsive" />
 					@endif  --}}
+					@if(!empty($post->post_photo))
 					<img src="{{ $post->post_photo }}" style="max-height: 300px; width: 100%; border-radius: 5px;" class="img-responsive" />
+					@endif
 					<h3>{{ $post->post_title }}</h3>
 					<ul>  
 						@if(Auth::user() != $post->user)
@@ -45,8 +47,8 @@
 							@foreach($post->comments as $comment)
 								<div class="comments-grid">
 									<div class="comments-grid-left">
-										@if(!empty($comment->user->user_photo) && Storage::exists('public'.$comment->user->user_photo))
-											<a href="{{ route('view', ['user' => $comment->user]) }}"><img src="{{ asset('storage'.$comment->user->user_photo) }}" alt=" " class="img-responsive" style="max-height: 100px; max-width: 80px;" /></a>
+										@if(!empty($comment->user->user_photo))
+											<a href="{{ route('view', ['user' => $comment->user]) }}"><img src="$comment->user->user_photo" alt=" " class="img-responsive" style="max-height: 100px; max-width: 80px;" /></a>
 										@else
 											<a href="{{ route('view', ['user' => $comment->user]) }}"><img src="https://www.shareicon.net/data/128x128/2016/06/25/786529_people_512x512.png" alt=" " class="img-responsive"></a>
 										@endif
@@ -99,7 +101,7 @@
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/bootstrap.js"></script>
-<script type="text/javascript" src="{{ asset('js/myjs.js') }}"></script>
+<script type="text/javascript" src="js/myjs.js"></script>
 <script type="text/javascript">
 
 	/*  some globals   */

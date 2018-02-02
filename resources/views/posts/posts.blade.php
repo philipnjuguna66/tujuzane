@@ -3,7 +3,7 @@
 
 @section('content')
 
-<link rel="stylesheet" type="text/css" href="{{ asset('css/posts_css.css') }}">
+<link rel="stylesheet" type="text/css" href="css/posts_css.css">
 
 <style type="text/css" media="screen">
 	body{
@@ -23,14 +23,11 @@
 				@foreach($posts as $post)
 
 					<div class="tc-ch">
-						<!-- @if(!empty($post->post_photo) && Storage::exists('public'.$post->post_photo))
-							<div class="tch-img">
-								<a href="{{ route('post', ['post' => $post]) }}"><img src="{{ asset('storage'.$post->post_photo) }}" style="border-radius:5px; max-height: 250px; width: 100%; border-radius: 5px;" class="img-responsive" alt=""/></a>
-							</div>
-						@endif	 -->
+						@if(!empty($post->post_photo))
 						<div class="tch-img">
 							<a href="{{ route('post', ['post' => $post]) }}"><img src="{{ $post->post_photo }}" style="border-radius:5px; max-height: 250px; width: 100%; border-radius: 5px;" class="img-responsive" alt=""/></a>
 						</div>
+						@endif
 
 						{{-- <a class="blog blue" href="singlepage.html">Technology</a> --}}
 						<h3><a href="{{ route('post', ['post' => $post]) }}">{{  $post->post_title }}</a></h3>

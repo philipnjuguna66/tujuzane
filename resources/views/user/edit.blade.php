@@ -4,7 +4,7 @@
 
 @section('content')
 
-<link rel="stylesheet" type="text/css" href="{{ asset('css/user.css') }}">
+<link rel="stylesheet" type="text/css" href="css/user.css">
 <style type="text/css">
   h6:hover{
     color:green;
@@ -191,7 +191,7 @@
   }
 
 </script>
-<script type="text/javascript" src="{{ asset('js/myjs.js') }}">
+<script type="text/javascript" src="js/myjs.js">
 </script>
 
 @endsection('content')

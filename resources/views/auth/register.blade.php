@@ -3,8 +3,8 @@
 
 @section('content')
 
-<link href="{{ asset('css/register.css') }}" rel="stylesheet" type="text/css" media="all">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/user.css') }}">
+<link href="css/register.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="css/user.css">
 
 <!-- Main -->
 <div class="about-bottom main-agile book-form">
