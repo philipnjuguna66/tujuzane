@@ -23,8 +23,8 @@
     <style type="text/css" media="screen">
         .btn-getstarted {
           font-family: Arial;
-          padding: 30px;
-          font-size: 30px;
+          padding: 20px;
+          font-size: 20px;
           font-weight: bold;
           margin: 20px;
           color: rgba(91, 192, 222, 0.75);
