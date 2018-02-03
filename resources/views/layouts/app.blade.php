@@ -14,7 +14,7 @@
     {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap/css/bootstrap.min.css') }}"> --}}
     
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script>
         UPLOADCARE_PUBLIC_KEY = '3f7f757fee6f8c69eb27';
@@ -106,13 +106,13 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Links for all (guest, users) -->
-                        <li><a href="{{ route('posts') }}">Posts</i></a></li>
+                        <li><a href="{{ route('posts') }}" title="Articles"><i class="fas fa-list-alt"></i></a></li>
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
+                            <li><a href="{{ route('register') }}" title="Register"><i class="fas fa-user-plus"></i></a></li>
                         @else
-                            <li><a href="{{ route('newpost') }}">Create</a></li>
+                            <li><a href="{{ route('newpost') }}"><i class="fas fa-edit"></i></a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -143,6 +143,9 @@
     </div>
 
     <!-- Scripts -->
+    <script type="text/javascript">
+        
+    </script>
     <script src="{{ secure_asset('js/app.js') }}"></script>
 </body>
 </html>
