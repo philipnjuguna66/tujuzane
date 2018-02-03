@@ -32,12 +32,13 @@
       <div class="panel-footer" style="padding: 10px;">
 
         <div class="alert alert-info" style=""> 
-          Please note you can also upload a photo/image related to your post. Click on the browse button below. (JPEG or PNG only)
+          Please note you can also upload a image related to your post. (JPEG or PNG only)
         </div>
-        <input type="hidden" name="UPLOADCARE_PUB_KEY" value="3f7f757fee6f8c69eb27">
+        {{-- <input type="hidden" name="UPLOADCARE_PUB_KEY" value="3f7f757fee6f8c69eb27">
         <input type="hidden" name="UPLOADCARE_ACTION" value="{{ route('post.create') }}">
         <input id="fileButton" type="file" name="image" onchange="readURL(this)"><br>
-        <img id="blah" style="display: none;" src="" class="img-responsive" height="100" width="200" alt="story image" />
+        <img id="blah" style="display: none;" src="" class="img-responsive" height="100" width="200" alt="story image" /> --}}
+        <input type="hidden" role="uploadcare-uploader" name="image" data-crop="">
       </div>
 
     </div>
@@ -53,39 +54,5 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-<script type="text/javascript">
-  jQuery(document).ready(function($) {
-    console.clear();
-
-    var srcChecker = setInterval(function(){
-      if($("#blah").attr('src')){
-        $("#blah").css('display', 'block');
-        clearInterval(srcChecker);
-      }
-    }, 100);
-
-    $( "#createPostForm" ).submit(function( event ) {
-      if($("#fileButton").val()){
-        $("#createPostForm").attr('action', 'https://upload.uploadcare.com/submit/');
-      }
-      // console.log($('#createPostForm').attr('action'));
-      // event.preventDefault();
-    });
-
-  });
-
-  function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $('#blah')
-                .attr('src', e.target.result);
-        };
-
-        reader.readAsDataURL(input.files[0]);
-    }
-  }
-</script>
 
 @endsection

@@ -38,12 +38,7 @@
 
           <h6 onclick="doTheFollowing(this)" style="cursor:pointer;">Upload a different photo?</h6>
           
-          <input type="hidden" name="UPLOADCARE_PUB_KEY" value="3f7f757fee6f8c69eb27">
-          <input type="hidden" name="UPLOADCARE_ACTION" value="{{ route('update.me') }}">
-          @if($errors->any())
-          @else
-            <input id="fileButton" type="file" name="image" onchange="readURL(this)" class="form-control">
-          @endif
+          <input type="hidden" role="uploadcare-uploader" name="image" data-crop="">
         </div>
       </div>
       
@@ -156,33 +151,9 @@
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
 <script type="text/javascript">
-  $(document).ready(function(){
-    console.clear();
-    
-    $( "#userEditForm" ).submit(function( event ) {
-      if($("#fileButton").val()){
-        $("#userEditForm").attr('action', 'https://upload.uploadcare.com/submit/');
-      }
-      
-      //event.preventDefault();
-    });
-  });
-
   /* variables  */
   var confirmPassRoute = "{{ route('confirm.pass') }}";
   var token = "{{ Session::token() }}";
-
-  function readURL(input) {
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
-
-      reader.onload = function (e) {
-          $('#profileImage').attr('src', e.target.result);
-      };
-
-      reader.readAsDataURL(input.files[0]);
-    }
-  }
 
   function cancelPassChanging(element){
     $("#passEditing").css('display', 'none');

@@ -64,7 +64,7 @@ class UserController extends Controller
         $user = Auth::user();
         if(isset($request->image))
         {
-            $user->user_photo = "https://ucarecdn.com/".$request->image."/";
+            $user->user_photo = $request->image;
         }
         $user->update();
         

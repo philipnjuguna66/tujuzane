@@ -53,7 +53,7 @@ class PostController extends Controller
             if($user->posts()->create([
                 'post_title' => $request->post_title,
                 'post_body' => $request->post_body,
-                'post_photo' => "https://ucarecdn.com/".$request->image."/"
+                'post_photo' => $request->image
             ])){
                 session()->flash('message', "Your post has been published");
             }else{
@@ -131,15 +131,15 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, Post $post)
     {
         // //save the post
-        $post = Post::find($request->id);
+        $post = Post::find($post->id);
         $post->post_title = $request->post_title;
         $post->post_body = $request->post_body;
         if(isset($request->image))
         {
-            $post->post_photo = "https://ucarecdn.com/".$request->image."/";
+            $post->post_photo = $request->image;
         }
 
         $post->update();

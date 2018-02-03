@@ -16,6 +16,13 @@
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+        UPLOADCARE_PUBLIC_KEY = '3f7f757fee6f8c69eb27';
+        UPLOADCARE_TABS = 'file camera url facebook gdrive gphotos dropbox instagram';
+        UPLOADCARE_PREVIEW_STEP = true;
+        UPLOADCARE_CLEARABLE = true;
+    </script>
+    <script charset="utf-8" src="https://ucarecdn.com/libs/widget/3.2.1/uploadcare.full.min.js"></script>
 
     <style type="text/css" media="screen">
         body{
