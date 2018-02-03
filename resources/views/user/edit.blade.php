@@ -162,7 +162,7 @@
   }
 
 </script>
-<script type="text/javascript" src="js/myjs.js">
+<script type="text/javascript" src="{{ secure_asset('js/myjs.js') }}">
 </script>
 
 @endsection('content')
