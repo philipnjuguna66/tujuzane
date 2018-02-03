@@ -106,16 +106,16 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Links for all (guest, users) -->
-                        <li><a href="{{ route('posts') }}" title="Articles"><i class="fas fa-list-alt"></i></a></li>
+                        <li><a href="{{ route('posts') }}"><i class="fas fa-list-alt"></i> Articles</a></li>
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
-                            <li><a href="{{ route('register') }}" title="Register"><i class="fas fa-user-plus"></i></a></li>
+                            <li><a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i></a></li>
+                            <li><a href="{{ route('register') }}"><i class="fas fa-user-plus"></i></a></li>
                         @else
                             <li><a href="{{ route('newpost') }}"><i class="fas fa-edit"></i></a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <i class="fas fa-user"></i> <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
@@ -124,7 +124,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                           <i class="fas fa-sign-out-alt"></i> Signout
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
