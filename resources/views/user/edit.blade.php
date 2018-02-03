@@ -76,12 +76,12 @@
             </div>
           </div>
 
-          <div class="">
+          <div class="" id="pass">
             <div class="form-group">
                 <div class="col-md-3"></div>
                 <div class="col-md-8">
                  <a href="#" data-toggle="modal" data-target="#pwdModal" id="changepasstext">Change your password</a>
-                 <a href="#" style="display: none;" id="cancelPassChanging" onclick="cancelPassChanging(this);">Cancel Changing password</a> 
+                 <a href="#pass" style="display: none;" id="cancelPassChanging" onclick="cancelPassChanging(this);">Cancel Changing password</a> 
                 </div>
              </div>
           <div id="passEditing" style="display: none;"> 
