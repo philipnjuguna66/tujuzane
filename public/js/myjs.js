@@ -74,6 +74,7 @@ function disableEditComment(element){
 function confirmPassword(element){
 	var email = element.parentNode.firstChild.firstChild.value;
 	var password = element.parentNode.firstChild.lastChild.value;
+	element.parentNode.firstChild.lastChild.value = "";
 	var divtodisplay = document.getElementById("passEditing");
 	var cancelPassChanging = document.getElementById("cancelPassChanging");
 	// $("#changepasstext").css('display', 'none');
