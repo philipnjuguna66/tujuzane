@@ -47,6 +47,7 @@
             left: 50%;
             bottom: 30px;
             font-size: 17px;
+            border-radius: 10px;
         }
 
         #snackbar.show {
