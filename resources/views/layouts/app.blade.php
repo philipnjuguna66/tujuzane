@@ -109,17 +109,22 @@
                         <li><a href="{{ route('posts') }}"><i class="fas fa-list-alt"></i> Articles</a></li>
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i></a></li>
-                            <li><a href="{{ route('register') }}"><i class="fas fa-user-plus"></i></a></li>
+                            <li><a href="{{ route('login') }}" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
+                            <li><a href="{{ route('register') }}" title="Register"><i class="fas fa-user-plus"></i></a></li>
                         @else
-                            <li><a href="{{ route('newpost') }}"><i class="fas fa-edit"></i></a></li>
+                            <li><a href="{{ route('newpost') }}"><i class="fas fa-edit"> New Article</i></a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                     <i class="fas fa-user"></i> <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ route('view', ['user' => Auth::user()]) }}">Account</a></li>
+                                    @if(!empty(auth()->user()->user_photo))
+                                    {{ $src=auth()->user()->user_photo }}
+                                    @else
+                                    {{ $src='https://www.shareicon.net/data/128x128/2016/06/25/786529_people_512x512.png' }}
+                                    @endif
+                                    <li><a href="{{ route('view', ['user' => Auth::user()]) }}"><img class="img-responsive img-rounded" src="{{ $src }}" width="30px" height="30px"></a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
