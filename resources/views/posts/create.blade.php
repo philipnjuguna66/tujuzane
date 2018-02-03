@@ -32,7 +32,7 @@
       <div class="panel-footer" style="padding: 10px;">
 
         <div class="alert alert-info" style=""> 
-          Please note you can also upload a image related to your post. (JPEG or PNG only)
+          Please note you can also upload an image related to your post. (JPEG or PNG only)
         </div>
         {{-- <input type="hidden" name="UPLOADCARE_PUB_KEY" value="3f7f757fee6f8c69eb27">
         <input type="hidden" name="UPLOADCARE_ACTION" value="{{ route('post.create') }}">
