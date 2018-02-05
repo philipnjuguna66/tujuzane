@@ -1,3 +1,15 @@
+<?php
+
+if(!empty(auth()->user()->user_photo))
+{
+    $src=auth()->user()->user_photo;
+}else
+{
+    $src='https://www.shareicon.net/data/128x128/2016/06/25/786529_people_512x512.png';
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -93,7 +105,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img class="img-responsive" style="max-width: 70px; max-height: 70px;" src="{{ secure_asset('images/logo.png') }}">
+                        <img class="img-responsive" style="max-width: 100px; max-height: 100px;" src="{{ secure_asset('images/logo.png') }}">
                     </a>
                 </div>
 
@@ -119,11 +131,6 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    @if(!empty(auth()->user()->user_photo))
-                                    {{ $src=auth()->user()->user_photo }}
-                                    @else
-                                    {{ $src='https://www.shareicon.net/data/128x128/2016/06/25/786529_people_512x512.png' }}
-                                    @endif
                                     <li><a href="{{ route('view', ['user' => Auth::user()]) }}"><img class="img-responsive img-rounded" src="{{ $src }}" width="30px" height="30px"></a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
