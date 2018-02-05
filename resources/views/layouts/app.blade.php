@@ -127,11 +127,11 @@ if(!empty(auth()->user()->user_photo))
                             <li><a href="{{ route('newpost') }}"><i class="fas fa-edit"> New Article</i></a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                    <img class="img-responsive" style="display: inline; border-radius: 50%;" src="{{ $src }}" width="50px" height="50px"> <span class="caret"></span>
+                                    <i class="fas fa-user"></i> <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ route('view', ['user' => Auth::user()]) }}"><i class="fas fa-user-plus"> Profile</a></li>
+                                    <li><a href="{{ route('view', ['user' => Auth::user()]) }}"><img class="img-responsive" style="border-radius: 50%;" src="{{ $src }}" width="50px" height="50px"></a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
