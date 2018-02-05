@@ -9,6 +9,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    min-height: 100%;
 }
 body a{
 transition:0.5s all;

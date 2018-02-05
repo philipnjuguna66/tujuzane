@@ -42,6 +42,7 @@ if(!empty(auth()->user()->user_photo))
             background-repeat: no-repeat;
             background-size: cover;
             background-attachment: fixed;
+            min-height: 100%;
         }
         .navbar{
             opacity: 0.7;
