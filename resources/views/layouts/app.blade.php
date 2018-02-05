@@ -105,7 +105,7 @@ if(!empty(auth()->user()->user_photo))
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img class="img-responsive" style="max-width: 100px; max-height: 100px;" src="{{ secure_asset('images/logo.png') }}">
+                        <img class="img-responsive" style="max-width: 100px; max-height: 100px;" src="{{ secure_asset('images/logo.png') }}"> Account
                     </a>
                 </div>
 
