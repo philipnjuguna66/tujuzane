@@ -121,8 +121,8 @@ if(!empty(auth()->user()->user_photo))
                         <li><a href="{{ route('posts') }}"><i class="fas fa-list-alt"></i> Articles</a></li>
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
-                            <li><a href="{{ route('register') }}" title="Register"><i class="fas fa-user-plus"></i></a></li>
+                            <li><a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"> Sign in</i></a></li>
+                            <li><a href="{{ route('register') }}" title="Register"><i class="fas fa-user-plus"> Sign up</i></a></li>
                         @else
                             <li><a href="{{ route('newpost') }}"><i class="fas fa-edit"> New Article</i></a></li>
                             <li class="dropdown">
@@ -131,7 +131,7 @@ if(!empty(auth()->user()->user_photo))
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ route('view', ['user' => Auth::user()]) }}"><img class="img-responsive img-rounded" src="{{ $src }}" width="50px" height="50px"> Account</a></li>
+                                    <li><a href="{{ route('view', ['user' => Auth::user()]) }}"><img class="img-responsive img-rounded" src="{{ $src }}" width="50px" height="50px"></a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
