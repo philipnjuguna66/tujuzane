@@ -105,7 +105,7 @@ if(!empty(auth()->user()->user_photo))
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img class="img-responsive img-rounded" style="max-width: 100px; max-height: 100px;" src="{{ secure_asset('images/logo.png') }}"> Account
+                        <img class="img-responsive" style="max-width: 70px; max-height: 70px;" src="{{ secure_asset('images/logo.png') }}">
                     </a>
                 </div>
 
@@ -131,7 +131,7 @@ if(!empty(auth()->user()->user_photo))
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ route('view', ['user' => Auth::user()]) }}"><img class="img-responsive img-rounded" src="{{ $src }}" width="30px" height="30px"></a></li>
+                                    <li><a href="{{ route('view', ['user' => Auth::user()]) }}"><img class="img-responsive img-rounded" src="{{ $src }}" width="50px" height="50px"> Account</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
