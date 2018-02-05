@@ -37,12 +37,13 @@ if(!empty(auth()->user()->user_photo))
     <script charset="utf-8" src="https://ucarecdn.com/libs/widget/3.2.1/uploadcare.full.min.js"></script>
 
     <style type="text/css" media="screen">
-        body{
+        html{
             background:url('../images/bg11.jpg'),no-repeat;
             background-repeat: no-repeat;
             background-size: cover;
             background-attachment: fixed;
             min-height: 100%;
+            overflow: hidden;
         }
         .navbar{
             opacity: 0.7;
