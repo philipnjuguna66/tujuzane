@@ -21,7 +21,7 @@
     <h1>Edit Profile</h1>
   	<hr>
 	<div class="row">
-		<form id="userEditForm" onkeydown="checkKeyPressed()" class="form-horizontal" role="form" method="POST" action="{{ route('update.me') }}" enctype="multipart/form-data">
+		<form id="userEditForm"  class="form-horizontal" role="form" method="POST" action="{{ route('update.me') }}" enctype="multipart/form-data">
         	{{ csrf_field() }}
       <!-- left column -->
       <div class="col-md-3">
