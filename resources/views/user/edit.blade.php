@@ -110,7 +110,6 @@
             </div>
           </div>
           <div id="snackbar"></div>
-        </form>
 
         <!--modal-->
 		<div id="pswdModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
@@ -145,6 +144,7 @@
 		  </div>
 		  </div>
 		</div>
+  </form>
   </div>
 </div>
 <hr>
