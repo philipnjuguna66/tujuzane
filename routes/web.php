@@ -26,7 +26,7 @@ Route::get('/posts', [
 	'as' => 'posts'
 ]);
 
-Route::get('posts/{post}', [
+Route::get('posts/{post}/{where?}', [
 	'uses' => 'PostController@show',
 	'as' => 'post'
 ]);

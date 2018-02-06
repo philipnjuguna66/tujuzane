@@ -48,9 +48,8 @@
 				</div>
 			<div class="single-left2">
 			
-				<div class="comments">
+				<div class="comments" id="comments">
 					<hr>
-					<a name="comments"></a>
 					<h3>Comments</h3>
 					<div class="comments-grids">
 						@if(count($post->comments) > 0)

@@ -80,7 +80,7 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Post $post, $where = null)
     {
         return view('posts.show', ['post' => $post]);
     }
@@ -98,10 +98,11 @@ class PostController extends Controller
 
         //add comment to the post
         if($post->addComment(request('comment_body'))){
-            $message = "Your comment has been added";
+            session()->flash('message', 'Your commennt has been added');
         }
 
-        return redirect()->back()->with(['message' => $message]);
+        //return redirect()->back()->with(['message' => $message]);
+        return redirect()->route('post', ['post' => $post, 'where' => '#comments']);
     }
 
     public function postAddComment(Request $request){
