@@ -43,7 +43,7 @@
 										@endif
 									 </a></li>
 									<li><i class="fa fa-calendar"> </i>{{ $post->created_at->diffForHumans() }}</li>
-									<li><i class="fa fa-comments"> </i>{{-- <a class="p-blog" href="{{ route('post', ['post' => $post]) }}">Comments </a> --}}{{count($post->comments)}} Comments</li>
+									<li><i class="fa fa-comments"> </i><a class="p-blog" href="{{ route('post.comments', ['post' => $post]) }}">{{count($post->comments)}} Comments</a>
 									{{-- <li><i class="glyphicon glyphicon-heart"> </i><a class="admin" href="#">5 favourites </a></li>
 									<li><i class="glyphicon glyphicon-eye-open"> </i>1.128 views</li> --}}
 								</ul>
