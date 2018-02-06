@@ -21,7 +21,7 @@
     <h1>Edit Profile</h1>
   	<hr>
 	<div class="row">
-		<form id="userEditForm" class="form-horizontal" role="form" method="POST" action="{{ route('update.me') }}" enctype="multipart/form-data">
+		<form id="userEditForm" onkeydown="checkKeyPressed()" class="form-horizontal" role="form" method="POST" action="{{ route('update.me') }}" enctype="multipart/form-data">
         	{{ csrf_field() }}
       <!-- left column -->
       <div class="col-md-3">
@@ -110,6 +110,7 @@
             </div>
           </div>
           <div id="snackbar"></div>
+        </form>
 
         <!--modal-->
 		<div id="pswdModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
@@ -144,7 +145,6 @@
 		  </div>
 		  </div>
 		</div>
-  </form>
   </div>
 </div>
 <hr>
@@ -155,25 +155,25 @@
     $('#pswdModal').on('shown.bs.modal', function () {
       $('#passwordFirst').focus();
     })
+    $("#userEditForm").keydown(function (event) {
+      if (event.which == 13 || event.keyCode == 13) {
+        event.preventDefault();
+        return false;
+      }else{
+        return true;
+      }
+    });
+
+    $("#pswdModal").keydown(function (event){
+      if(event.which == 13 || event.keyCode == 13){
+        event.preventDefault();
+        return false;
+      }else{
+        return true;
+      }
+    });
   });
 
-  $("#userEditForm").keydown(function (event) {
-    if (event.which == 13 || event.keyCode == 13) {
-      event.preventDefault();
-      return false;
-    }else{
-      return true;
-    }
-  });
-
-  $("#pswdModal").keydown(function (event){
-    if(event.which == 13 || event.keyCode == 13){
-      event.preventDefault();
-      return false;
-    }else{
-      return true;
-    }
-  });
 
   /* variables  */
   var confirmPassRoute = "{{ route('confirm.pass') }}";
