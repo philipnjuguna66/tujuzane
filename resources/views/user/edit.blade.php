@@ -36,7 +36,7 @@
             display:block; margin:auto;" src="https://www.shareicon.net/data/128x128/2016/06/25/786529_people_512x512.png">
           @endif
 
-          <h6 onclick="doTheFollowing(this)" style="cursor:pointer;">Upload a different photo?</h6>
+          <h6 style="cursor:pointer;">Upload a different photo?</h6>
           
           <input type="hidden" role="uploadcare-uploader" name="image" data-crop="">
         </div>
@@ -80,7 +80,7 @@
             <div class="form-group">
                 <div class="col-md-3"></div>
                 <div class="col-md-8">
-                 <a href="#" data-toggle="modal" data-target="#pwdModal" id="changepasstext">Change your password</a>
+                 <a href="#" data-toggle="modal" data-target="#pswdModal" id="changepasstext">Change your password</a>
                  <a href="#pass" style="display: none;" id="cancelPassChanging" onclick="cancelPassChanging(this);">Cancel Changing password</a> 
                 </div>
              </div>
@@ -113,7 +113,7 @@
         </form>
 
         <!--modal-->
-		<div id="pwdModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+		<div id="pswdModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 		  <div class="modal-dialog">
 		  <div class="modal-content">
 		      <div class="modal-header">
@@ -130,7 +130,7 @@
                                   <input type="hidden" value="{{ $user->email }}">
                                   <input class="form-control" placeholder="Password" type="password" id="passwordFirst">
                                 </div>
-                                <input class="btn btn-primary btn-block" onclick="confirmPassword(this)" value="Confirm" data-dismiss="modal">
+                                <input type="button" class="btn btn-primary btn-block" onclick="confirmPassword(this)" value="Confirm" data-dismiss="modal">
                             </div>
                         </div>
                     </div>
@@ -151,6 +151,20 @@
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
 <script type="text/javascript">
+  $(document).ready(function(){
+    $('#pswdModal').on('shown.bs.modal', function () {
+      $('#passwordFirst').focus();
+    })
+  });
+
+  $("#userEditForm").keydown(function (event) {
+    if (event.which == 13 || event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+    else return true;
+  });
+
   /* variables  */
   var confirmPassRoute = "{{ route('confirm.pass') }}";
   var token = "{{ Session::token() }}";
