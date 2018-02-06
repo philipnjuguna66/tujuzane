@@ -128,9 +128,9 @@
                             <div class="panel-body">
                                 <div class="form-group">
                                   <input type="hidden" value="{{ $user->email }}">
-                                  <input class="form-control" onkeydown="checkIfEmpty(this);" placeholder="Password" type="password" id="passwordFirst">
+                                  <input class="form-control" placeholder="Password" type="password" id="passwordFirst">
                                 </div>
-                                <input type="button" class="btn btn-primary btn-block" onclick="confirmPassword(this)" value="Confirm" data-dismiss="modal" disabled>
+                                <input type="button" id="btnConfirm" class="btn btn-primary btn-block" onclick="confirmPassword(this)" value="Confirm" data-dismiss="modal" disabled>
                             </div>
                         </div>
                     </div>
@@ -172,6 +172,15 @@
         return true;
       }
     });
+
+    document.getElementById('passwordFirst').oninput = function(){
+      if(this.value.length < 1){
+        $("#btnConfirm").prop('disabled', true);
+      }else{
+        $("#btnConfirm").prop('disabled', false);
+      }
+    }
+
   });
 
 
@@ -183,16 +192,6 @@
     $("#passEditing").css('display', 'none');
     $("#changepasstext").css('display', 'block');
     $(element).css('display', 'none');
-  }
-
-  function checkIfEmpty(element){
-    var btnConfirm = element.parentNode.parentNode.lastChild;
-    if(element.value == ""){
-      //disable confirm
-      $(btnConfirm).prop('disabled', true);
-    }else{
-      $(btnConfirm).prop('disabled', false);
-    }
   }
 
 </script>
