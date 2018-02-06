@@ -166,7 +166,7 @@
     }
   });
 
-  $("#passwordFirst").keydown(function (event){
+  $("#pswdModal").keydown(function (event){
     if(event.which == 13 || event.keyCode == 13){
       event.preventDefault();
       return false;
