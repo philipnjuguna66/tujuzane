@@ -117,9 +117,13 @@
 <script type="text/javascript" src="{{ secure_asset('js/myjs.js') }}"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		console.clear();
 		var address = window.location.href;
 		if(address.includes('/comment')){
 			newaddress = address.replace('/comment', '#comment');
+			window.location.assign(newaddress);
+		}else if(address.includes('/comments')){
+			newaddress = address.replace('/comments', '#comments');
 			window.location.assign(newaddress);
 		}
 	});

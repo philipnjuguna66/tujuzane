@@ -26,7 +26,7 @@ Route::get('/posts', [
 	'as' => 'posts'
 ]);
 
-Route::get('posts/{post}/{where?}', [
+Route::get('posts/{post}', [
 	'uses' => 'PostController@show',
 	'as' => 'post'
 ]);
@@ -35,6 +35,11 @@ Route::get("/posts/{post}/comment", [
 	'uses' => 'PostController@loginToComment',
 	'as' => 'login.to.comment',
 	'middleware' => 'auth'
+]);
+
+Route::get("/posts/{post}/comments", [
+	'uses' => 'PostController@postComments',
+	'as' => 'post.comments'
 ]);
 
 Route::get('/post/create', [

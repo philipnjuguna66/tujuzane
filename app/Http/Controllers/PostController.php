@@ -13,7 +13,7 @@ use \File;
 class PostController extends Controller
 {
     public function __constructor(){
-        $this->middleware()->except(['index', 'show']);
+        $this->middleware()->except(['index', 'show', 'postComments']);
     }
     /**
      * Display a listing of the resource.
@@ -80,14 +80,18 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post, $where = null)
+    public function show(Post $post)
     {
         return view('posts.show', ['post' => $post]);
     }
 
     public function loginToComment(Post $post)
     {
-        return view('posts.show', ['post' => $post]);
+        return $this->show($post);
+    }
+
+    public function postComments(Post $post){
+        return $this->show($post);
     }
 
     public function commentOnPost(Post $post, Request $request){
@@ -101,17 +105,7 @@ class PostController extends Controller
             session()->flash('message', 'Your commennt has been added');
         }
 
-        //return redirect()->back()->with(['message' => $message]);
-        return redirect()->route('post', ['post' => $post, 'where' => '#comments']);
-    }
-
-    public function postAddComment(Request $request){
-        $post = Post::find($request->postid);
-        if($post->addComment($request->comment_body)){
-            return "Added";
-        }else{
-            return "Failed";
-        }
+        return redirect()->route('post.comments', ['post' => $post]);
     }
 
     /**
