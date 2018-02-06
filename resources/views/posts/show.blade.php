@@ -4,7 +4,7 @@
 @section('content')
 
 <link href="{{ secure_asset('post/css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
-{{-- <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/app.css') }}"> --}}
+<link rel="stylesheet" type="text/css" href="{{ secure_asset('css/app.css') }}">
 <link href="{{ secure_asset('css/user.css') }}" rel="stylesheet">
 
 <style type="text/css" media="screen">
