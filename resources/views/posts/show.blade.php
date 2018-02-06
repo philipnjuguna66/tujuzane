@@ -8,6 +8,9 @@
 <link href="{{ secure_asset('css/user.css') }}" rel="stylesheet">
 
 <style type="text/css" media="screen">
+	body{
+		overflow: scroll;
+	}
 	#logintocomment{
 		margin: 10px;
 		color: #9E510C;
