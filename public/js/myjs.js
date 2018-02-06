@@ -79,18 +79,14 @@ function confirmPassword(element){
 	var cancelPassChanging = document.getElementById("cancelPassChanging");
 	// $("#changepasstext").css('display', 'none');
 	// divtodisplay.style.display = "block";
-	if(password != "")
-	{
-		$.post(confirmPassRoute, {'email': email, 'password': password, '_token':token}, function(data) {
-			if(data == 'true'){
-				$("#changepasstext").css('display', 'none');
-				cancelPassChanging.style.display = "block";
-				divtodisplay.style.display = "block";
-			}else{
-				showToast('Wrong password', 'red');
-			}
-		});
-	else{
-		$(element.parentNode.firstChild.lastChild).focus();
-	}
+
+	$.post(confirmPassRoute, {'email': email, 'password': password, '_token':token}, function(data) {
+		if(data == 'true'){
+			$("#changepasstext").css('display', 'none');
+			cancelPassChanging.style.display = "block";
+			divtodisplay.style.display = "block";
+		}else{
+			showToast('Wrong password', 'red');
+		}
+	});
 }
