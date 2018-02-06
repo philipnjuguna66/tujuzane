@@ -84,7 +84,7 @@
             ?>
             <div class="row">
               <div class="col-md-12">
-                <hr><a href="{{ route('editme', ['user' => $user]) }}"><button class="btn btn-default pull-right"><i class="fas fa-pencil-alt"></i> Edit profile</button></a>
+                <hr><a href="{{ route('editme', ['user' => $user]) }}"><button class="btn btn-default pull-right"><i class="fas fa-pencil-alt"></i> Update profile</button></a>
               </div>
             </div>
             <?php

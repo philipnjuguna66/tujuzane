@@ -161,8 +161,18 @@
     if (event.which == 13 || event.keyCode == 13) {
       event.preventDefault();
       return false;
+    }else{
+      return true;
     }
-    else return true;
+  });
+
+  $("#passwordFirst").keydown(function (event){
+    if(event.which == 13 || event.keyCode == 13){
+      event.preventDefault();
+      return false;
+    }else{
+      return true;
+    }
   });
 
   /* variables  */
