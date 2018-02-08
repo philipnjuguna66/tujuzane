@@ -122,7 +122,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Links for all (guest, users) -->
-                        <li><a href="{{ route('posts') }}"><i class="fas fa-list-alt"></i> Articles</a></li>
+                        <li><a href="{{ route('posts') }}"><i class="fas fa-list-alt"> Articles</i></a></li>
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"> Sign in</i></a></li>
