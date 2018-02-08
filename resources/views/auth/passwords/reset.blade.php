@@ -2,6 +2,7 @@
 @section('title', 'Reset Password')
 
 @section('content')
+<link rel="stylesheet" type="text/css" href="{{ secure_asset('css/user.css') }}">
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
