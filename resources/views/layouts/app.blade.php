@@ -1,12 +1,12 @@
 <?php
 
-if(!empty(auth()->user()->user_photo))
-{
-    $src=auth()->user()->user_photo;
-}else
-{
-    $src='https://www.shareicon.net/data/128x128/2016/06/25/786529_people_512x512.png';
-}
+    if(!empty(auth()->user()->user_photo))
+    {
+        $src=auth()->user()->user_photo;
+    }else
+    {
+        $src='https://www.shareicon.net/data/128x128/2016/06/25/786529_people_512x512.png';
+    }
 
 ?>
 
@@ -87,6 +87,9 @@ if(!empty(auth()->user()->user_photo))
         @keyframes fadeout {
             from {bottom: 30px; opacity: 1;}
             to {bottom: 0; opacity: 0;}
+        }
+        .fas{
+            color: #487585;
         }
     </style>
 </head>
