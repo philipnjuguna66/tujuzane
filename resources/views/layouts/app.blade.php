@@ -26,6 +26,7 @@
     {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap/css/bootstrap.min.css') }}"> --}}
     
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script>
@@ -88,7 +89,7 @@
             from {bottom: 30px; opacity: 1;}
             to {bottom: 0; opacity: 0;}
         }
-        .fas{
+        .fas, .fa, .material-icons{
             color: #487585;
         }
     </style>
@@ -131,7 +132,7 @@
                             <li><a href="{{ route('newpost') }}"><i class="fas fa-edit"> New Article</i></a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                    <i class="fas fa-user"></i> <span class="caret"></span>
+                                    <i class="material-icons">account_circle</i> <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
@@ -140,7 +141,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                           <i class="fas fa-sign-out-alt"></i> Signout
+                                           <i class="fas fa-sign-out-alt"> Signout</i>
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
