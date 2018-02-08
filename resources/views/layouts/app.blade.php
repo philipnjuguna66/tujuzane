@@ -132,7 +132,7 @@
                             <li><a href="{{ route('newpost') }}"><i class="fas fa-edit"> New Article</i></a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                    <i class="material-icons">account_circle</i> <span class="caret"></span>
+                                    <i class="material-icons">account_circle <span class="caret"></span></i>
                                 </a>
 
                                 <ul class="dropdown-menu">
