@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use \SMSProvider;
+use \Exception;
 
 class RegisterController extends Controller
 {
@@ -73,7 +74,11 @@ class RegisterController extends Controller
         {
             //notify me of the new user
             $message = $newUser->name ." >> ".$newUser->email . " just signed up! ".route('view', ['user' => $newUser]);
-            SMSProvider::sendMessage(env('MY_PHONE_NUMBER'), $message);
+            try {
+                @SMSProvider::sendMessage(env('MY_PHONE_NUMBER'), $message);
+            } catch (Exception $e) {
+                //will try notifying via email
+            }
         }
 
         return $newUser;
