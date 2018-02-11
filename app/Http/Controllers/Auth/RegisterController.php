@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use \SMSProvider;
 
 class RegisterController extends Controller
 {
@@ -62,10 +63,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $newUser = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+        if($newUser)
+        {
+            //notify me of the new user
+            $message = $newUser->name ." >> ".$newUser->email . " just signed up! ".route('view', ['user' => $newUser]);
+            SMSProvider::sendMessage(env('MY_PHONE_NUMBER'), $message);
+        }
+
+        return $newUser;
     }
 }

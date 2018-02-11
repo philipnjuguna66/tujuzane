@@ -122,3 +122,7 @@ Route::post('user/update', [
 	'as' => 'update.me',
 	'middleware' => 'auth'
 ]);
+
+Route::get('test', function () {
+    SMSProvider::sendMessage('+254700012090', 'I hope this one works!');
+});
