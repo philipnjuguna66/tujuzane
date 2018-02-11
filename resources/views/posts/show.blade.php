@@ -71,7 +71,7 @@
 											<li>{{ $comment->created_at->diffForHumans() }} </li>
 											@if(auth()->user() == $comment->user)
 												<li><a style="cursor: pointer;" onclick="editComment(this)"><i class="commentfas fas fa-edit"></i></a></li>
-												<li><i>|</i><a style="cursor: pointer;" onclick="deleteComment(this)"><i class="commentfas fas fa-trash-alt"></i></a>{{-- <a href="{{ route('comment.delete', ['comment' => $comment]) }}"></a> --}}<p style="display: none;" id="comment_id">{{ $comment->id }}</p></li>
+												<li><a style="cursor: pointer;" onclick="deleteComment(this)"><i class="commentfas fas fa-trash-alt"></i></a>{{-- <a href="{{ route('comment.delete', ['comment' => $comment]) }}"></a> --}}<p style="display: none;" id="comment_id">{{ $comment->id }}</p></li>
 											@endif
 											{{-- <li><a href="#">Reply</a></li> --}}
 										</ul>
