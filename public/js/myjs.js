@@ -7,9 +7,12 @@ function showToast(text, color = '#009936'){
 }
 
 function deleteComment(element){
-	if(confirm('Delete this comment? You CANNOT UNDO this.') == true){
-		// var link = element.parentNode.lastChild;
-		// $(link)[0].click();
+	swal({
+		title: "Delete this comment? Cannot be undone.",
+		icon: "warning",
+		buttons: true;
+	})
+	.then((value)=>{
 		var commentId = element.parentNode.lastChild.innerHTML;
 		var divtodelete = element.parentNode.parentNode.parentNode.parentNode;
 
@@ -20,7 +23,11 @@ function deleteComment(element){
 				showToast("Comment deleted");
 			}
 		});
-	}
+	})
+	// if(confirm('Delete this comment? You CANNOT UNDO this.') == true){
+	// 	// var link = element.parentNode.lastChild;
+	// 	// $(link)[0].click();
+	// }
 }
 
 function editComment(element){

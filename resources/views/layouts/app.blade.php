@@ -36,6 +36,8 @@
         UPLOADCARE_CLEARABLE = true;
     </script>
     <script charset="utf-8" src="https://ucarecdn.com/libs/widget/3.2.1/uploadcare.full.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="{{ secure_asset('js/myjs.js') }}"></script>
 
     <style type="text/css" media="screen">
         body{
@@ -91,6 +93,10 @@
         }
         .fas, .fa, .material-icons{
             color: #487585;
+        }
+        .commentfas{
+            font-size: 14px;
+            cursor: pointer;
         }
         .material-icons{
             vertical-align: middle;

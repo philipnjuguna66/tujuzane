@@ -41,7 +41,7 @@
 						<li><i class="fa fa-calendar"></i>  {{ $post->created_at->diffForHumans() }}</li>
 						@if(Auth::user() == $post->user)
 							<li><a href="{{ route('post.edit', ['post' => $post]) }}"><i class="fa fa-edit">&nbsp;Edit</i></a></li>
-							<li><i class="fa fa-trash" onclick="confirmDelete(this)" style="cursor: pointer;">&nbsp;Delete</i><a href="{{ route('post.delete', ['post' => $post]) }}" id="delete"></a></li>
+							<li><i class="fa fa-trash-alt" onclick="confirmDelete(this)" style="cursor: pointer;">&nbsp;Delete</i><a href="{{ route('post.delete', ['post' => $post]) }}" id="deleteID"></a></li>
 						@endif
 					</ul>
 					<p>{{ $post->post_body }}</p>
@@ -59,7 +59,7 @@
 										@if(!empty($comment->user->user_photo))
 											<a href="{{ route('view', ['user' => $comment->user]) }}"><img src="{{ $comment->user->user_photo }}" alt=" " class="img-responsive" style="max-height: 100px; max-width: 80px;" /></a>
 										@else
-											<a href="{{ route('view', ['user' => $comment->user]) }}"><img src="https://www.shareicon.net/data/128x128/2016/06/25/786529_people_512x512.png" alt=" " class="img-responsive"></a>
+											<a href="{{ route('view', ['user' => $comment->user]) }}"><img src="https://www.shareicon.net/data/128x128/2016/06/25/786529_people_512x512.png" alt=" " class="img-responsive" style="max-height: 100px; max-width: 80px;"></a>
 										@endif
 									</div>
 									<div class="comments-grid-right">
@@ -70,8 +70,8 @@
 										<ul>
 											<li>{{ $comment->created_at->diffForHumans() }} </li>
 											@if(auth()->user() == $comment->user)
-												<li><i>|</i><a style="cursor: pointer;" onclick="editComment(this)">Edit</a></li>
-												<li><i>|</i><a style="cursor: pointer;" onclick="deleteComment(this)">Delete</a>{{-- <a href="{{ route('comment.delete', ['comment' => $comment]) }}"></a> --}}<p style="display: none;" id="comment_id">{{ $comment->id }}</p></li>
+												<li><a style="cursor: pointer;" onclick="editComment(this)"><i class="commentfas fas fa-edit"></i></a></li>
+												<li><i>|</i><a style="cursor: pointer;" onclick="deleteComment(this)"><i class="commentfas fas fa-trash-alt"></i></a>{{-- <a href="{{ route('comment.delete', ['comment' => $comment]) }}"></a> --}}<p style="display: none;" id="comment_id">{{ $comment->id }}</p></li>
 											@endif
 											{{-- <li><a href="#">Reply</a></li> --}}
 										</ul>
@@ -135,11 +135,25 @@
 	var postid = "{{ $post->id }}";
 	var token = "{{Session::token()}}";
 
-	function confirmDelete(element){
+	function letsconfirmDelete(element){
 		if(confirm('Are you sure you want to delete this post? You CANNOT UNDO this') == true){
 			var link = element.parentNode.lastChild;
 			$(link)[0].click();
 		}
+	}
+
+	function confirmDelete(element){
+		swal({
+			title: "Delete this article?", 
+			text: "", 
+			icon: "warning",
+			buttons: true
+		})
+		.then((value)=>{
+			if(value){
+				$("#deleteID").click();
+			}
+		})
 	}
 
 	function addComment(element){
